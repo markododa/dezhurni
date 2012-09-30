@@ -1,0 +1,4 @@
+# -*- coding: utf-8
+people = [
+        ('Name Lastname', 'user@mail.com')
+        ]
