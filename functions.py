@@ -50,7 +50,7 @@ service = build(serviceName='calendar', version='v3', http=http,
 
 
 #Event adding part
-def eventfunc (startDate, endDate, name, email, week_start):
+def eventfunc (startDate, endDate, name, email):
 	event = {
 		'summary': config.summary + name,
 		'location': config.location,
