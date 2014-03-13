@@ -2,6 +2,6 @@ calendar.dat
 *.pyc
 config.py
 people.py
-*.*~
+*~
 .gitignore
 .directory
