@@ -1,0 +1,12 @@
+# -*- coding: utf-8
+people = [
+        ('Андреј Т.', 'andrejtrajchevski@gmail.com'),
+        ('Дода', 'runtavmedo@gmail.com'),
+        ('Мите', 'mitemitreski@gmail.com'),
+        ('Миша', 'popmisa@gmail.com'),
+        ('Дамјан', 'gdamjan@gmail.com'),
+        ('Глиша', 'glisha@gmail.com'),
+        ('Јованка', 'jovanka.gulicoska@gmail.com'),
+	('Арангел', 'ufo@linux.net.mk'),
+	('Висар', 'visar.zejnullahu@gmail.com')
+        ]
