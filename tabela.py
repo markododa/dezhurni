@@ -2,8 +2,8 @@
 # -*- coding: utf-8
 from datetime import timedelta as td, datetime as dt
 from  people import people
-
-date = dt.date(dt(year=2012, month=9, day=03))
+#Set to monday
+date = dt.date(dt(year=2014, month=02, day=10))
 days_offset=7
 week_end = date+td(days=-1)
 ord_no=1
@@ -15,10 +15,12 @@ out = """{| class="wikitable" border="1" cellpadding="3" cellspacing="1"
 ! Забелешка
 """
 
+
+
 for x in (range(2)):
 	for person in people:
 		name, email = person
-    		week_start = week_end + td(days=1)
+    		week_start = week_end+ td(days=1)
     		week_end = date + td(days=days_offset-1)
 
     		out += '|-\n'
@@ -30,7 +32,7 @@ for x in (range(2)):
     		ord_no += 1
     		days_offset += 7
 		if x==0:
-			nesho = week_end+td(days=1)
+			next = week_end+td(days=1)
 out += "|}"
 print out
-print nesho
+print next
