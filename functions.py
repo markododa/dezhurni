@@ -58,8 +58,7 @@ def eventfunc (startDate, endDate, name, email):
 		'description' : config.description,
 		'start': {'date': startDate.strftime('%Y-%m-%d')},
 		'end': {'date': endDate.strftime('%Y-%m-%d')},
-		'attendees': [{'email': email}],
-		"reminders": {"useDefault": "useDefault"}
+		'attendees': [{'email': email}]
 		}
-	created_event = service.events().insert(calendarId=config.calendarId, body=event).execute()
+	created_event = service.events().insert(calendarId=config.calendarId, body=event,sendNotifications = True).execute()
 	print created_event['id']
