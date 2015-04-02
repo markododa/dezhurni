@@ -16,7 +16,7 @@ out = """{| class="wikitable" border="1" cellpadding="3" cellspacing="1"
 
 
 
-for x in (range(2)):
+for x in (range(3)):
 	for person in people:
 		name, email = person
     		week_start = week_end+ td(days=1)
@@ -30,7 +30,8 @@ for x in (range(2)):
 
     		ord_no += 1
     		days_offset += 7
-        next = week_end+td(days=1)
+        if x == 1:
+            next = week_end+td(days=1)
 out += "|}"
 print out
 print next
