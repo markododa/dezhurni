@@ -2,8 +2,7 @@
 # -*- coding: utf-8
 from datetime import timedelta as td, datetime as dt
 from  people import people
-#Set to monday
-date = dt.date(dt(year=2014, month=02, day=10))
+from config import date
 days_offset=7
 week_end = date+td(days=-1)
 ord_no=1
@@ -31,8 +30,7 @@ for x in (range(2)):
 
     		ord_no += 1
     		days_offset += 7
-		if x==0:
-			next = week_end+td(days=1)
+        next = week_end+td(days=1)
 out += "|}"
 print out
 print next
