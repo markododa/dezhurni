@@ -8,7 +8,6 @@ from apiclient.discovery import build
 from oauth2client.file import Storage
 from oauth2client.client import OAuth2WebServerFlow
 from oauth2client.tools import run
-from datetime import timedelta, datetime as dt
 
 FLAGS = gflags.FLAGS
 
