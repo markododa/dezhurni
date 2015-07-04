@@ -31,7 +31,7 @@ def postit (startdate):
         week_end = week_end + datetime.timedelta(days=7)
         weekly(name, email, week_start)
         print name, email, week_start, week_end
-        nextdate = week_end + datetime.timedelta(days=1)
-        datewrite('caldate', nextdate)
+    nextdate = week_end + datetime.timedelta(days=1)
+    datewrite('caldate', nextdate)
 
 postit(startdate)
