@@ -1,18 +1,16 @@
 # -*- coding: utf-8
 #Auth configs
-#ClientID set to spodeli
 client_id =
 
 client_secret =
-#API key set to spodeli
 developerKey = 
 calendarId =
-scope=
-user_agent=
+scope='https://www.googleapis.com/auth/calendar'
+user_agent='Dezurstva/1.0'
 
 #Event variables
-summary =
-location =
-description =
+summary = 'Summary for the event'
+location = 'Location of the event'
+description = 'description of the event'
 #Insert array of days starting with zero for monday
-days = [0,3,5]
+days = [0, 4, 5]
