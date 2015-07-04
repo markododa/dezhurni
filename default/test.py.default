@@ -1,0 +1,8 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8
+import datetime
+from functions import eventfunc
+import config
+startDate = datetime.date(year=2015, month=05, day=17)
+endDate = startDate + datetime.timedelta(days=1)
+eventfunc(startDate, endDate, "Test", 'test@gmail.com')
