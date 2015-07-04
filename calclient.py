@@ -7,7 +7,7 @@ import logging
 from apiclient.discovery import build
 from oauth2client.file import Storage
 from oauth2client.client import OAuth2WebServerFlow
-from oauth2client.tools import run
+from oauth2client.tools import run_flow, argparser
 from config import client_id, client_secret, scope, user_agent, developerKey
 
 FLAGS = gflags.FLAGS
@@ -36,7 +36,7 @@ FLOW = OAuth2WebServerFlow(
 storage = Storage('calendar.dat')
 credentials = storage.get()
 if credentials is None or credentials.invalid == True:
-  credentials = run(FLOW, storage)
+  credentials = run_flow(FLOW, storage, argparser.parse_args([]))
 
 # Create an httplib2.Http object to handle our HTTP requests and authorize it
 # with our good Credentials.
@@ -49,7 +49,7 @@ http = credentials.authorize(http)
 service = build(serviceName='calendar', version='v3', http=http, developerKey=developerKey)
 
 #Event adding part
-def eventfunc (startDate, endDate, name, email, summary, location, description, calendarId):
+def addevent (startDate, endDate, name, email, summary, location, description, calendarId):
 	event = {
 		'summary': summary + name,
 		'location': location,
