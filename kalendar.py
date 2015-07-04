@@ -35,7 +35,7 @@ def postit (date, people):
             name, email = person
             week_start = week_end + datetime.timedelta(days=1)
             week_end = week_end + datetime.timedelta(days=7)
-            #weekly(name, email, week_start)
+            weekly(name, email, week_start)
             print name, email, week_start, week_end
         return week_end + datetime.timedelta(days=1)
     else:

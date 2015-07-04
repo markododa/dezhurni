@@ -5,3 +5,8 @@ people.py
 *~
 .gitignore
 .directory
+test.py
+credentials
+startdate
+nextdate
+caldate
