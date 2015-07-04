@@ -2,15 +2,17 @@
 # -*- coding: utf-8
 import gflags
 import httplib2
-import config
+import logging
 
 from apiclient.discovery import build
 from oauth2client.file import Storage
 from oauth2client.client import OAuth2WebServerFlow
 from oauth2client.tools import run
+from config import client_id, client_secret, scope, user_agent, developerKey
 
 FLAGS = gflags.FLAGS
 
+logging.basicConfig()
 #Auth section
 # Set up a Flow object to be used if we need to authenticate. This
 # sample uses OAuth 2.0, and we set up the OAuth2WebServerFlow with
@@ -20,10 +22,10 @@ FLAGS = gflags.FLAGS
 # The client_id and client_secret are copied from the API Access tab on
 # the Google APIs Console
 FLOW = OAuth2WebServerFlow(
-    client_id=config.client_id,
-    client_secret=config.client_secret,
-    scope=config.scope,
-    user_agent=config.user_agent)
+    client_id=client_id,
+    client_secret=client_secret,
+    scope=scope,
+    user_agent=user_agent)
 
 # To disable the local server feature, uncomment the following line:
 # FLAGS.auth_local_webserver = False
@@ -44,19 +46,17 @@ http = credentials.authorize(http)
 # Build a service object for interacting with the API. Visit
 # the Google APIs Console
 # to get a developerKey for your own application.
-service = build(serviceName='calendar', version='v3', http=http,
-       developerKey=config.developerKey)
-
+service = build(serviceName='calendar', version='v3', http=http, developerKey=developerKey)
 
 #Event adding part
-def eventfunc (startDate, endDate, name, email):
+def eventfunc (startDate, endDate, name, email, summary, location, description, calendarId):
 	event = {
-		'summary': config.summary + name,
-		'location': config.location,
-		'description' : config.description,
+		'summary': summary + name,
+		'location': location,
+		'description' : description,
 		'start': {'date': startDate.strftime('%Y-%m-%d')},
 		'end': {'date': endDate.strftime('%Y-%m-%d')},
 		'attendees': [{'email': email}]
 		}
-	created_event = service.events().insert(calendarId=config.calendarId, body=event,sendNotifications = True).execute()
+	created_event = service.events().insert(calendarId=calendarId, body=event,sendNotifications = True).execute()
 	print created_event['id']
