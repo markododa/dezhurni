@@ -33,7 +33,7 @@ def tabela(people):
             out += '|-\n'
             out += '| '+str(ord_no)+'\n'
             out += '| '+name+'\n'
-            out += '| '+week_start.strftime('%-d %B')+' до '+week_end.strftime('%-d %B %Y')+'\n'
+            out += '| '+week_start.strftime('%-d %b')+' до '+week_end.strftime('%-d %b %Y')+'\n'
             out += "| \n"
             ord_no += 1
             if x == 0:
