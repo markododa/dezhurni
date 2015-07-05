@@ -1,11 +1,11 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 # -*- coding: utf-8
 import datetime
 import locale
-locale.setlocale(locale.LC_ALL, '')
+locale.setlocale(locale.LC_ALL, 'mk_MK.utf8')
 from people import people
 
-def tabela():
+def tabela(people):
     def dateread(file):
         year, month, day = map(int, open(file, 'r').readline().split())
         return datetime.date(year=year, month=month, day=day)
@@ -28,18 +28,18 @@ def tabela():
     for x in (range(3)):
         for person in people:
             name, email = person
-    	    week_start = week_end + datetime.timedelta(days=1)
-    	    week_end = week_end + datetime.timedelta(days=7)
-    	    out += '|-\n'
-    	    out += '| '+str(ord_no)+'\n'
-    	    out += '| '+name+'\n'
-    	    out += '| '+week_start.strftime('%-d %B')+' до '+week_end.strftime('%-d %B %Y')+'\n'
-    	    out += "| \n"
-    	    ord_no += 1
+            week_start = week_end + datetime.timedelta(days=1)
+            week_end = week_end + datetime.timedelta(days=7)
+            out += '|-\n'
+            out += '| '+str(ord_no)+'\n'
+            out += '| '+name+'\n'
+            out += '| '+week_start.strftime('%-d %B')+' до '+week_end.strftime('%-d %B %Y')+'\n'
+            out += "| \n"
+            ord_no += 1
             if x == 0:
                 nextdate = week_end + datetime.timedelta(days=1)
                 datewrite('nextdate', nextdate)
     out += "|}"
     return out
 
-print tabela()
+print(tabela(people))
